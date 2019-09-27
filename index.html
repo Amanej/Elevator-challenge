@@ -1,0 +1,40 @@
+<html>
+
+
+    <body>
+
+        <h2>The Elevator</h2>
+
+
+        <div id="app">
+            <p>Current floor: {{floor}}</p>
+            <h2>Floors</h2>
+            <button v-for="floorBtnValue in 10" @click="goToFloor(floorBtnValue)">{{floorBtnValue}}</button>
+        </div>
+
+    </body>
+
+    <script src="Elevator.ts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        const Hissen = new Elevator();
+        var app = new Vue({
+            el: '#app',
+                data: {
+                    floor: 0,
+                },
+                methods: {
+                    goToFloor(floor) {
+                        Hissen.goToFloor(floor);
+                        this.floor = Hissen.currentFloor;
+                    }
+                }
+        })
+        /*
+        const Heis = new Elevator();
+
+        console.log(Heis)
+        */
+    </script>
+</html>
