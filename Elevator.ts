@@ -1,25 +1,31 @@
-interface Queue {
+interface Passenger {
     floor: number
 }
 
-interface Passenger {
-
+interface Floor {
+    level: number,
+    queue: Passenger[]
 }
 
+
 class Elevator {
-    static floors: number = 10;
+    static numberOfFloors: number = 10; // Make into a variable
     
     public currentFloor: number = 0;
-    public queue: Queue[] = [];
+    public queue: Passenger[] = [];
     // Features
         // Go to floor
     public goToFloor(floor:number): void {
+        const directionIsUp = this.directionIsUp(floor);
+        if(directionIsUp) {
+           // Map over floors 
+        }
         this.currentFloor=floor;
     };
         // Queue passengers
             // Simple
                 // Onload passenger
-    public queuePassenger(passenger:Queue): void {
+    public queuePassenger(passenger:Passenger): void {
         this.queue.push(passenger);
     }
                 // Offload passenger
@@ -27,29 +33,34 @@ class Elevator {
         this.queue.pop();
     }
     // public number
+
+    private directionIsUp(newFloor:number) {
+        return this.currentFloor < newFloor;
+    }
             // Advanced
-    private checkNewPassenger(passenger:Queue): void {
+    private checkNewPassenger(passenger:Passenger): void {
         // Check new passenger position
         // isPassengerOnTheCurrentFloor(passenger)
     }
-    private isPassengerOnTheCurrentFloor(passenger:Queue): boolean {
+    private isPassengerOnTheCurrentFloor(passenger:Passenger): boolean {
         return this.currentFloor === passenger.floor;
     }
-    private isNewPassengerClosest(passenger:Queue): boolean {
-        
+    private isNewPassengerClosest(passenger:Passenger): boolean {
+        return false
     }
 
 
     private checkFloor(floor:number): boolean {
         // True if not
             // Bigger 10 or smaller than 0
+        return false
     }
         
 }
 
 // export default Elevator;
 
-
+/*
 window.Elevator = Elevator;
 
 const Heis = new Elevator();
@@ -70,6 +81,7 @@ Heis.goToFloor(4);
 console.log('Offloading passenger at ',Heis.currentFloor);
 Heis.dequeueLastPassenger();
 console.log(' Finally done! Passengers:  ',Heis.queue.length)
+*/
 // Heis
 
 // console.log(window)
