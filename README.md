@@ -1,6 +1,6 @@
 ## The Elevator
 
-This was originally a coding challenger delivered to me from Skalar, and me and Sami did a 30 minute coding challenge that was very fun.
+This was originally a coding challenger delivered to me from Skalar, and I did a 30 minute coding challenge that was very fun.
 
 
 ### Features
